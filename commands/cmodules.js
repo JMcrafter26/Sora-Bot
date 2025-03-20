@@ -69,7 +69,7 @@ module.exports = {
         try {
             // Send embed to channel
             await channel.send({ embeds: [embed], components: [row] });
-            await interaction.reply({ content: `Embed sent to ${channel}!`, ephemeral: true });
+           // await interaction.reply({ content: `Embed sent to ${channel}!`, ephemeral: true });
 
             // Make GET request to external API
             const manifestUrl = encodeURIComponent(link);
