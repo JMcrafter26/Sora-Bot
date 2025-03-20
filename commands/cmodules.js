@@ -1,7 +1,9 @@
 // Import necessary modules from Discord.js and others
 const { SlashCommandBuilder, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
 const idclass = require('../idclass');
-const fetch = require('node-fetch'); // Added for GET requests
+//const fetch = require('node-fetch'); // Added for GET requests
+// With this (no imports needed):
+globalThis.fetch = fetch;
 
 module.exports = {
     data: new SlashCommandBuilder()
