@@ -71,21 +71,21 @@ module.exports = {
         try {
             // Send embed to channel
             await channel.send({ embeds: [embed], components: [row] });
-           // await interaction.reply({ content: `Embed sent to ${channel}!`, ephemeral: true });
+           await interaction.reply({ content: `Embed sent to ${channel}!`, ephemeral: true });
 
             // Make GET request to external API
             const manifestUrl = encodeURIComponent(link);
             const token = idclass.modulelib_token; // Ensure this exists in idclass.js
             const apiUrl = `https://sora.jm26.net/api/modules/add?manifestUrl=${manifestUrl}&token=${token}`;
-
+            console.log(apiUrl);
             const response = await fetch(apiUrl);
             if (!response.ok) console.log(`API Error: ${response.status} ${response.statusText}`);
             
             const data = await response.json();
-            await interaction.followUp({ 
+            /* await interaction.followUp({ 
                 content: `✅ Module added to Module Library! API Response: ${JSON.stringify(data)}`, 
                 ephemeral: true 
-            });
+            }); */
 
         } catch (error) {
             console.error('Error:', error);
